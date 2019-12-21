@@ -11,16 +11,11 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build Docker image
-      run: docker build . --file Dockerfile --tag scottjr632/go-supervise-client:$(date +%s)
+      run: docker build . --file Dockerfile --tag scottjr632/go-supervise-client:latest
     - name: Start Docker image
-      run: docker run --name client --rm -d scottjr632/go-supervise-client:$(date +%s)
+      run: docker run --name client --rm -d scottjr632/go-supervise-client:latest
     - name: Test image
       run: docker run --network container:client appropriate/curl -s --retry 10 --retry-connrefused http://localhost:80
-      
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
