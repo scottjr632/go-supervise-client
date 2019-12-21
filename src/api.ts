@@ -16,18 +16,18 @@ export interface Response<T> {
 }
 
 export const login = ({ username, password }) => {
-  return axios.post('/api/auth/', { username, password })
+    return axios.post('/api/auth/', { username, password })
 }
 
 export const checkAuthentication = () => {
-  return axios.get('/api/protected/')
+    return axios.get('/api/protected/')
 }
 
 export const getAllWorkersHealth = (): Promise<Response<WorkerHealth[]>> => {
-  return axios.get('/api/workers/health/').catch(err => err)
+    return axios.get('/api/workers/health/').catch(err => err)
 }
 
 export const getWorkerById = async (workerId: string): Promise<Response<Worker>> => {
-  let res = await axios.get(`/api/workers/health?workerId=${workerId}`)
-  return <Response<Worker>><unknown>res
+    let res = await axios.get(`/api/workers/health?workerId=${workerId}`)
+    return <Response<Worker>><unknown>res
 }
