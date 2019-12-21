@@ -17,10 +17,13 @@ parserOptions:
 plugins:
   - react
   - '@typescript-eslint'
+settings:
+  react:
+    version: detect
 rules:
   indent:
     - error
-    - 4
+    - 2
   linebreak-style:
     - error
     - unix
@@ -30,3 +33,10 @@ rules:
   semi:
     - error
     - never
+  no-unused-vars:
+    - off
+  react/prop-types:
+    - off
+  jsx-quotes:
+    - error
+    - prefer-single

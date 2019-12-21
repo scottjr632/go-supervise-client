@@ -3,7 +3,7 @@ import { faCloudSun, faSun, faPooStorm, faTasks } from '@fortawesome/free-solid-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-enum Status {
+export enum Status {
 	StatusHealthy = 'Worker is healthy',
 	StatusCloudy = 'Worker is cloudy',
 	StatusStormy = 'Worker is stormy',
@@ -12,21 +12,23 @@ enum Status {
 }
 
 const CheckUpStatusIcon: FC<{ status: Status }> = ({ status }) => {
-    switch (status) {
-    case Status.StatusCloudy:
-        return <span className="fa-icon__orange"><FontAwesomeIcon icon={faCloudSun} /></span>
-    case Status.StatusHealthy:
-        return <span className="fa-icon__orange"><FontAwesomeIcon icon={faSun} /></span>
-    case Status.StatusStormy:
-        return <span><FontAwesomeIcon icon={faPooStorm} /></span>
-    default:
-        return <span><FontAwesomeIcon icon={faTasks} /></span>
-    }
+  switch (status) {
+  case Status.StatusCloudy: 
+    return <span className='fa-icon__orange'><FontAwesomeIcon icon={faCloudSun} /></span>
+  case Status.StatusHealthy:
+    return <span className='fa-icon__orange'><FontAwesomeIcon icon={faSun} /></span>
+  case Status.StatusStormy:
+    return <span><FontAwesomeIcon icon={faPooStorm} /></span>
+  default:
+    return <span><FontAwesomeIcon icon={faTasks} /></span>
+  }
 }
 
-export default ({ status }) => (
-    <>
-        {status}
-        <CheckUpStatusIcon status={status} />
-    </>
+const CheckUpStatus: FC<{ status: Status }> = ({ status }) => (
+  <>
+    {status}
+    <CheckUpStatusIcon status={status} />
+  </>
 )
+
+export default CheckUpStatus
