@@ -15,7 +15,7 @@ const Dashboard = () => {
   }, [])
 
   return (
-    <div className="dashboard">
+    <div className="dashboard"> 
       <Sidebar>
         <ul>
           <li className="active-li">Dashboard</li>
