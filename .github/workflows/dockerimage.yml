@@ -13,7 +13,7 @@ jobs:
     - name: Build Docker image
       run: docker build . --file Dockerfile --tag scottjr632/go-supervise-client:latest
     - name: Start Docker image
-      run: docker run --name client --rm -d scottjr632/go-supervise-client:latest
+      run: docker run --name client --rm -d -e SERVER_URI=http://server:11221 scottjr632/go-supervise-client:latest
     - name: Test image
       run: docker run --network container:client appropriate/curl -s --retry 10 --retry-connrefused http://localhost:80
     - name: Publish to Registry
