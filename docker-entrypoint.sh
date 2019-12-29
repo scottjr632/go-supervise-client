@@ -24,7 +24,7 @@ server {
 }
 EOM
 
-cat client.template > /etc/nginx/conf.d/default.conf
+envsubst < client.template > /etc/nginx/conf.d/default.conf
 
 nginx -t
 exec nginx -g 'daemon off;'
